@@ -1,0 +1,7 @@
+{
+  "compilerOptions": {
+    "outDir": "build",
+  },
+  "include": ["**/*"],
+  "exclude": ["node_modules", "build"]
+}

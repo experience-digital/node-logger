@@ -19,6 +19,7 @@
   },
   "homepage": "https://gitlab.com/experience-digital/node-logger#readme",
   "devDependencies": {
+    "@types/node": "^15.12.4",
     "typescript": "^4.3.4"
   },
   "dependencies": {

@@ -1,0 +1,22 @@
+{
+  "name": "node-logger",
+  "version": "1.0.0",
+  "description": "logger for our node/javascript/typescript projects",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/experience-digital/node-logger.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/experience-digital/node-logger/issues"
+  },
+  "homepage": "https://gitlab.com/experience-digital/node-logger#readme",
+  "devDependencies": {
+    "typescript": "^4.3.4"
+  }
+}

@@ -18,5 +18,9 @@
   "homepage": "https://gitlab.com/experience-digital/node-logger#readme",
   "devDependencies": {
     "typescript": "^4.3.4"
+  },
+  "dependencies": {
+    "@sentry/node": "^6.7.2",
+    "@sentry/tracing": "^6.7.2"
   }
 }

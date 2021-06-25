@@ -1,19 +1,72 @@
-import * as Sentry from '@sentry/node'
+// import * as Sentry from '@sentry/node'
+// import * as Sentry from "@sentry/browser";
+// import * as Tracing from '@sentry/tracing'
 
 export default {
-  captureException(dsn, language, log) {
+  async captureException(dsn, language, log) {
     if (language === 'node') {
-      Sentry.init({
-        // dsn: "https://8b86687cbf9644ef8a028d3853c684e9@o109215.ingest.sentry.io/5831479",
-        dsn: dsn,
+      import('@sentry/node')
+        .then(Sentry => {
+          Sentry.init({
+            dsn: dsn,
 
-        // Set tracesSampleRate to 1.0 to capture 100%
-        // of transactions for performance monitoring.
-        // We recommend adjusting this value in production
-        tracesSampleRate: 1.0,
-      })
+            // Set tracesSampleRate to 1.0 to capture 100%
+            // of transactions for performance monitoring.
+            // We recommend adjusting this value in production
+            tracesSampleRate: 1.0,
+          })
+          console.log(log)
+          Sentry.captureException(log)
+        })
+        .catch(err => {
+          console.error(err)
+        })
 
-      Sentry.captureException(log)
+    // } else if (language === 'vue') {
+    //   // const Vue = await import('vue')
+    //   import('@sentry/vue')
+    //     .then(Sentry => {
+    //       Sentry.init({
+    //         dsn: dsn,
+          
+    //         tracesSampleRate: 1.0,
+    //       })
+    //       console.log(log)
+    //       myUndefinedFunction();
+    //       // Sentry.captureException(log)
+    //     })
+    //     .catch(err => {
+    //       console.error(err)
+    //     })
+
+    } else if (language === 'js') {
+      // const Sentry = await import('@sentry/browser')
+      import('@sentry/browser')
+        .then(Sentry => {
+          Sentry.init({
+            dsn: dsn,
+            // integrations: [new Tracing.Integrations.BrowserTracing()],
+            tracesSampleRate: 1.0,
+          })
+          console.log(log)
+          try {
+            Sentry.captureMessage(log)
+            /* @ts-ignore */
+            myUndefinedJSFunction();
+          } catch (err) {
+            console.log(err)
+            Sentry.captureException(err)
+          }
+        })
+
+      // try {
+      //   Sentry.captureMessage("Something went wrong");
+
+      //   /* @ts-ignore */
+      //   aFunctionThatMightFail();
+      // } catch (err) {
+      //   Sentry.captureException(err);
+      // }
     }
   },
 

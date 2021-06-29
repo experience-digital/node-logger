@@ -1,5 +1,5 @@
 {
-  "name": "@experiencedigital/node-logger",
+  "name": "@experience-digital/node-logger",
   "version": "1.0.0",
   "description": "logger for our node/javascript/typescript projects",
   "main": "index.js",

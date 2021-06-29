@@ -9,6 +9,16 @@ default:
             echo "//gitlab.com/api/v4/packages/npm/:_authToken=${F91SwNhSFzaYLQBHvchd}"
             } | tee --append .npmrc
 
+    cache:
+        key: ${CI_COMMIT_REF_SLUG}
+        paths:
+            - node_modules
+
+variables:
+    NPM_TOKEN: ${F91SwNhSFzaYLQBHvchd}
+stages:
+    - release
+
 publish:
     stage: release
     script:

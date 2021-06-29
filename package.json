@@ -1,6 +1,6 @@
 {
   "name": "@experience-digital/node-logger",
-  "version": "1.0.2",
+  "version": "1.0.0",
   "description": "logger for our node/javascript/typescript projects",
   "main": "index.js",
   "scripts": {

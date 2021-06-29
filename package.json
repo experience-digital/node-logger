@@ -1,5 +1,5 @@
 {
-  "name": "@ed/node-logger",
+  "name": "@experience-digital/node-logger",
   "version": "1.0.0",
   "description": "logger for our node/javascript/typescript projects",
   "main": "index.js",
@@ -39,7 +39,7 @@
     ]
   },
   "publishConfig": {
-    "<@ed>:registry": "https://gitlab.com/api/v4/projects/27665512/packages/npm",
+    "<@experience-digital>:registry": "https://gitlab.com/api/v4/projects/27665512/packages/npm",
     "access": "public"
   }
 }

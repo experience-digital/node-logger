@@ -37,5 +37,9 @@
     "extensionsToTreatAsEsm": [
       ".ts"
     ]
+  },
+  "publishConfig": {
+    "<@ed>:registry": "https://gitlab.com/api/v4/projects/27665512/packages/npm",
+    "access": "public"
   }
 }

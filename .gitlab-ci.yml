@@ -4,9 +4,9 @@ default:
         - npm ci --cache .npm --prefer-offline
         - |
             {
-            echo "@experiencedigital:registry=${CI_API_V4_URL}/projects/${27665512}/packages/npm/"
-            echo "//gitlab.com/api/v4/projects/${27665512}/packages/npm/:_authToken=\${F91SwNhSFzaYLQBHvchd}"
-            echo "//gitlab.com/api/v4/packages/npm/:_authToken=${F91SwNhSFzaYLQBHvchd}"
+            echo "@experiencedigital:registry=${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/npm/"
+            echo "//gitlab.com/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=\${CI_JOB_TOKEN}"
+            echo "//gitlab.com/api/v4/packages/npm/:_authToken=${CI_JOB_TOKEN}"
             } | tee --append .npmrc
 
     cache:
@@ -15,7 +15,7 @@ default:
             - node_modules
 
 variables:
-    NPM_TOKEN: ${F91SwNhSFzaYLQBHvchd}
+    NPM_TOKEN: ${CI_JOB_TOKEN}
 stages:
     - release
 

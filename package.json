@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "tsc -b -v && jest --detectOpenHandles",
-    "build-and-run": "tsc -b -v && node build/index.js",
+    "build": "tsc -b -v",
     "clean": "tsc -b --clean"
   },
   "repository": {

@@ -36,15 +36,17 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-// import * as Sentry from '@sentry/node'
-var Sentry = require("@sentry/browser");
-// import * as Tracing from '@sentry/tracing'
 exports["default"] = {
     captureException: function (dsn, language, log) {
         return __awaiter(this, void 0, void 0, function () {
+            var Sentry, Integrations, Sentry;
             return __generator(this, function (_a) {
-                if (language === 'node') {
-                    Promise.resolve().then(function () { return require('@sentry/node'); }).then(function (Sentry) {
+                switch (_a.label) {
+                    case 0:
+                        if (!(language === 'node')) return [3 /*break*/, 2];
+                        return [4 /*yield*/, Promise.resolve().then(function () { return require('@sentry/node'); })];
+                    case 1:
+                        Sentry = _a.sent();
                         Sentry.init({
                             dsn: dsn,
                             // Set tracesSampleRate to 1.0 to capture 100%
@@ -52,62 +54,26 @@ exports["default"] = {
                             // We recommend adjusting this value in production
                             tracesSampleRate: 1.0
                         });
-                        console.log(log);
-                        Sentry.captureException(log);
-                    })["catch"](function (err) {
-                        console.error(err);
-                    });
-                    // } else if (language === 'vue') {
-                    //   // const Vue = await import('vue')
-                    //   import('@sentry/vue')
-                    //     .then(Sentry => {
-                    //       Sentry.init({
-                    //         dsn: dsn,
-                    //         // Set tracesSampleRate to 1.0 to capture 100%
-                    //         // of transactions for performance monitoring.
-                    //         // We recommend adjusting this value in production
-                    //         tracesSampleRate: 1.0,
-                    //       })
-                    //       console.log(log)
-                    //       myUndefinedFunction();
-                    //       // Sentry.captureException(log)
-                    //     })
-                    //     .catch(err => {
-                    //       console.error(err)
-                    //     })
+                        return [3 /*break*/, 5];
+                    case 2:
+                        if (!(language === 'js')) return [3 /*break*/, 5];
+                        return [4 /*yield*/, Promise.resolve().then(function () { return require("@sentry/tracing"); })];
+                    case 3:
+                        Integrations = (_a.sent()).Integrations;
+                        return [4 /*yield*/, Promise.resolve().then(function () { return require('@sentry/browser'); })];
+                    case 4:
+                        Sentry = _a.sent();
+                        Sentry.init({
+                            dsn: dsn,
+                            integrations: [new Integrations.BrowserTracing()],
+                            // Set tracesSampleRate to 1.0 to capture 100%
+                            // of transactions for performance monitoring.
+                            // We recommend adjusting this value in production
+                            tracesSampleRate: 1.0
+                        });
+                        _a.label = 5;
+                    case 5: return [2 /*return*/];
                 }
-                else if (language === 'js') {
-                    // const Sentry = await import('@sentry/browser')
-                    // import('@sentry/browser')
-                    //   .then(Sentry => {
-                    //     Sentry.init({
-                    //       dsn: dsn,
-                    //       integrations: [new Tracing.Integrations.BrowserTracing()],
-                    //       // Set tracesSampleRate to 1.0 to capture 100%
-                    //       // of transactions for performance monitoring.
-                    //       // We recommend adjusting this value in production
-                    //       tracesSampleRate: 1.0,
-                    //     })
-                    //     console.log(log)
-                    //     try {
-                    //       Sentry.captureMessage(log)
-                    //       /* @ts-ignore */
-                    //       myUndefinedJSFunction();
-                    //     } catch (err) {
-                    //       console.log(err)
-                    //       Sentry.captureException(err)
-                    //     }
-                    //   })
-                    try {
-                        Sentry.captureMessage("Something went wrong");
-                        /* @ts-ignore */
-                        aFunctionThatMightFail();
-                    }
-                    catch (err) {
-                        Sentry.captureException(err);
-                    }
-                }
-                return [2 /*return*/];
             });
         });
     },

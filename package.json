@@ -1,10 +1,10 @@
 {
-  "name": "node-logger",
+  "name": "@ed/node-logger",
   "version": "1.0.0",
   "description": "logger for our node/javascript/typescript projects",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "tsc -b -v && jest --detectOpenHandles",
     "build-and-run": "tsc -b -v && node build/index.js",
     "clean": "tsc -b --clean"
   },
@@ -20,13 +20,22 @@
   "homepage": "https://gitlab.com/experience-digital/node-logger#readme",
   "devDependencies": {
     "@types/node": "^15.12.4",
+    "@typescript-eslint/eslint-plugin": "^4.28.1",
+    "@typescript-eslint/parser": "^4.28.1",
+    "eslint": "^7.29.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.23.4",
+    "jest": "^27.0.6",
     "typescript": "^4.3.4"
   },
   "dependencies": {
     "@sentry/browser": "^6.7.2",
     "@sentry/node": "^6.7.2",
-    "@sentry/tracing": "^6.7.2",
-    "@sentry/vue": "^6.7.2",
-    "vue": "^2.6.14"
+    "@sentry/tracing": "^6.7.2"
+  },
+  "jest": {
+    "extensionsToTreatAsEsm": [
+      ".ts"
+    ]
   }
 }

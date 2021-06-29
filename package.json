@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@gitlab.com/experience-digital/node-logger.git"
+    "url": "git://github.com/experience-digital/node-logger.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://gitlab.com/experience-digital/node-logger/issues"
+    "url": "https://github.com/experience-digital/node-logger/issues"
   },
-  "homepage": "https://gitlab.com/experience-digital/node-logger#readme",
+  "homepage": "https://github.com/experience-digital/node-logger#readme",
   "devDependencies": {
     "@types/node": "^15.12.4",
     "@typescript-eslint/eslint-plugin": "^4.28.1",
@@ -39,7 +39,6 @@
     ]
   },
   "publishConfig": {
-    "<@experiencedigital>:registry": "https://gitlab.com/api/v4/projects/27665512/packages/npm",
-    "access": "public"
+    "registry": "https://npm.pkg.github.com"
   }
 }

@@ -2,7 +2,7 @@
   "name": "@experience-digital/node-logger",
   "version": "1.0.0",
   "description": "logger for our node/javascript/typescript projects",
-  "main": "index.js",
+  "main": "logger.ts",
   "scripts": {
     "test": "tsc -b -v && jest --detectOpenHandles",
     "build": "tsc -b -v",
@@ -39,7 +39,7 @@
     ]
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com",
+    "registry": "https://registry.npmjs.org",
     "access": "public"
   }
 }

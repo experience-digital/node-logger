@@ -9,6 +9,8 @@ export default {
         // We recommend adjusting this value in production
         tracesSampleRate: 1.0,
       })
+      Sentry.captureException(log)
+      return true
     } else if (language === 'js') {
       const { Integrations } = await import("@sentry/tracing");
       const Sentry =  await import('@sentry/browser')
@@ -20,6 +22,8 @@ export default {
         // We recommend adjusting this value in production
         tracesSampleRate: 1.0,
       })
+      Sentry.captureException(log)
+      return true
     }
     
   },

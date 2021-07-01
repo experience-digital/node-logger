@@ -1,8 +1,8 @@
 {
   "name": "@experience-digital/node-logger",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "logger for our node/javascript/typescript projects",
-  "main": "logger.ts",
+  "main": "build/logger.js",
   "scripts": {
     "test": "tsc -b -v && jest --detectOpenHandles",
     "build": "tsc -b -v",

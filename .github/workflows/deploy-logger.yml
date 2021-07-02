@@ -7,7 +7,7 @@ name: Create and publish node-logger package
 
 on:
   push:
-    branches: ['add-sentry']
+    branches: ['main']
 
 jobs:
   build:
